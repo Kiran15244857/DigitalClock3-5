@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <style>
+    *{
+        padding: 0px;
+        margin: 0px;
+    }
+    body{
+        width: 100%;
+        height: 100vh;
+        background-color: steelblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #SubButton{
+        width: 400px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        box-shadow: 5px 5px 5px black;
+        cursor: pointer;
+        position: absolute;
+        top: 40%;
+      }
+      #bell{
+        width: 20px;
+        display: none;
+
+      }
+      #dropdown{
+        width: 30px;
+        height: 24px;
+        font-weight: bold;
+        display: none;
+      }
+      #title{
+        font-size: 30px;
+        letter-spacing: 5px;
+        font-weight: bold;
+        text-align: center;
+        display: inline-block;
+        width: 100%;
+      }
+      .dropBell{
+        width: 30px;
+        padding: 2px;
+        padding-left: 10px;
+      }
+      #dropdownMenu{
+        width: 300px;
+        height: 160px;
+        background-color: gray;
+        position: absolute;
+        top: 43px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px black;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        display: none;
+        overflow: hidden;
+      }
+      .dropButtons{
+        width: 100%;
+        height: 40px;
+        display: flex;
+        justify-content: start;
+
+      }
+      .Dropdowntitle{
+        padding-left: 20px;
+        font-size: 24px;
+        letter-spacing: 5px;
+        font-weight: bold;
+      }
+      .dropButton:hover{
+        background-color: gainsboro;
+      }
+      #unsubscribe1{
+        width: 300px;
+        height: 180px;
+        background-color: gray;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px black;
+        display: none;
+        justify-content: space-evenly;
+        align-items: center;
+        position: absolute;
+      }
+      #textUsub{
+        position: absolute;
+        top: 30px;
+      }
+      .unsubBut{
+        position: relative;
+        top: 40px;
+        width: 120px;
+        height: 30px;
+        border-radius: 30px;
+        background-color: transparent;
+        border: none;
+        color: white;
+        letter-spacing: 2px;
+        font-weight: bold;
+      }
+      .unsubBut:hover{
+        background-color: gainsboro;
+        color: black;
+      }
+      #unsub{
+        color: royalblue;
+      }
+      #unsub:hover{
+        background-color: rgba(65,105,225,0.525);
+        color: black;
+      }
+
+
+    </style> 
+</head>
+<body>
+    <button id="SubButton" onclick="subs()" onblur="closeDropdown()">
+    <img src="./bell_icon_png2.png" id="bell" ><span id="title">Subscribe</span> <span id="dropdown">V</span>
+
+    <div id="dropdownMenu">
+        <div class="dropButtons" onclick="statusImg('./bell_icon_png2.png')">
+            <img class="dropBell" src="./bell_icon_png2.png"><span  class="Dropdowntitle">All</span>
+        </div>
+        <div class="dropButtons" onclick="statusImg('./ring _icon.png')">
+            <img class="dropBell" src="./ring _icon.png"><span class="Dropdowntitle">Personalised</span>
+        </div>
+        <div class="dropButtons" onclick="statusImg('./slash_icon.png')">
+            <img class="dropBell" src="./slash_icon.png"><span class="Dropdowntitle">None</span>
+        </div>
+        <div class="dropButtons" onclick="unsub()">
+            <img class="dropBell" src="./userminus_icon.png"><span class="Dropdowntitle">Unsubscribe</span>
+        </div>
+    </div>
+</button>
+<div id="unsubscribe1">
+        <h4 id="textUsub">Unsubscribe from Slaying The Dragon</h4>
+        <button class="unsubBut" onclick="unsubDis()">Cancel</button>
+        <button class="unsubBut" id="unsub" onclick="unsubscribe()">Unsubscribe</button>
+</div>
+  <script>
+        var num=0;
+        function subs()
+        {
+          num++;
+          document.getElementById("title").innerHTML="subscribed"
+          document.getElementById("bell").style.display="block"
+          document.getElementById("dropdown").style.display="block"
+          if(num>=2)
+          {
+              document.getElementById("dropdownMenu").style.display="flex"
+          }
+        }
+        function closeDropdown()
+        {
+          document.getElementById("dropdownMenu").style.display="none"
+        }
+        function statusImg(path)
+        {
+          document.getElementById("dropdownMenu").style.display="none"
+          document.getElementById("bell").src=path;
+        }
+        function unsub()
+        {
+          document.getElementById("unsubscribe1").style.display="flex"
+        }
+        function unsubDis()
+        {
+          document.getElementById("unsubscribe1").style.display="none"
+        }
+
+        function unsubscribe()
+        {
+          document.getElementById("title").innerHTML="Subscribe"
+          document.getElementById("bell").style.display="none"
+          document.getElementById("dropdown").style.display="none"
+          document.getElementById("unsubscribe1").style.display="none"
+        }
+
+</script>
+
+</body>
+</html>
